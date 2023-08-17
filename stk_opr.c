@@ -50,7 +50,7 @@ void display() {
 }
 
 int display_top() {
-    return stack.top;
+    return stack.items[stack.top];
 }
 
 int main() {
