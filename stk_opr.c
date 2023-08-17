@@ -49,6 +49,10 @@ void display() {
     }
 }
 
+int display_top() {
+    return stack.top;
+}
+
 int main() {
     stack.top = -1; // Initialize the stack
 
@@ -59,7 +63,8 @@ int main() {
         printf("1. Push\n");
         printf("2. Pop\n");
         printf("3. Display\n");
-        printf("4. Exit\n");
+        printf("4. Display Top Element\n");
+        printf("5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -79,6 +84,9 @@ int main() {
                 display();
                 break;
             case 4:
+                printf("\nThe top element in this stack is : %d \n",display_top());
+                break;
+            case 5:
                 printf("Exiting the program.\n");
                 return 0;
             default:
