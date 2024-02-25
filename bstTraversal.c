@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define a structure for a node in the BST
 struct Node {
     char cityName[50];
     struct Node* left;
     struct Node* right;
 };
 
-// Function to create a new node
 struct Node* createNode(char cityName[]) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     strcpy(newNode->cityName, cityName);
@@ -17,7 +15,6 @@ struct Node* createNode(char cityName[]) {
     return newNode;
 }
 
-// Function to insert a new node into the BST
 struct Node* insertNode(struct Node* root, char cityName[]) {
     if (root == NULL) {
         return createNode(cityName);
@@ -32,7 +29,6 @@ struct Node* insertNode(struct Node* root, char cityName[]) {
     return root;
 }
 
-// Function for Inorder traversal
 void inorderTraversal(struct Node* root) {
     if (root != NULL) {
         inorderTraversal(root->left);
@@ -41,7 +37,6 @@ void inorderTraversal(struct Node* root) {
     }
 }
 
-// Function for Preorder traversal
 void preorderTraversal(struct Node* root) {
     if (root != NULL) {
         printf("%s ", root->cityName);
@@ -50,7 +45,6 @@ void preorderTraversal(struct Node* root) {
     }
 }
 
-// Function for Postorder traversal
 void postorderTraversal(struct Node* root) {
     if (root != NULL) {
         postorderTraversal(root->left);
@@ -59,18 +53,15 @@ void postorderTraversal(struct Node* root) {
     }
 }
 
-// Main function
 int main() {
     struct Node* root = NULL;
+    root = insertNode(root, "Nimish Pur");
+    root = insertNode(root, "Pune");
+    root = insertNode(root, "Mumbai");
+    root = insertNode(root, "Wadala");
+    root = insertNode(root, "Thane");
+    root = insertNode(root, "Chembur");
 
-    // Inserting cities into the BST
-    root = insertNode(root, "New York");
-    root = insertNode(root, "Los Angeles");
-    root = insertNode(root, "Chicago");
-    root = insertNode(root, "Houston");
-    root = insertNode(root, "Phoenix");
-
-    // Traversing and printing the BST
     printf("Inorder Traversal: ");
     inorderTraversal(root);
     printf("\n");
